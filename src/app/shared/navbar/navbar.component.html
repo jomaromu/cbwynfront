@@ -1,0 +1,35 @@
+<div class="container-fluid" id="contenedorPrincipal" #contenedorPrincipal>
+    <div class="row" id="row">
+        <nav id="navPrincipal" class="navbar" #navPrincipal>
+
+            <div id="imgLogo">
+                <img [src]="logo" alt="Logo">
+                <!-- <p>Conectando negocios contigo</p> -->
+            </div>
+
+            <ul id="ulItems" class="ulNavbar" #ulItems>
+                <a routerLink="/inicio" routerLinkActive=activo><li><i class="fas fa-home" routerLinkActive="activo"></i> Inicio</li></a>
+                <a routerLink="/negocios" routerLinkActive=activo><li><i class="fas fa-user-tie" routerLinkActive="activo"></i> Negocios</li></a>
+                <a routerLink="/contacto" routerLinkActive=activo><li><i class="fas fa-headset" routerLinkActive="activo"></i> Contacto</li></a>
+                <a *ngIf="estadoUsuario.ok"  [routerLink]="estadoUsuario.ruta" routerLinkActive=activo><li><i class="fas fa-chart-area"  routerLinkActive="activo"></i> Panel de control</li></a>
+            </ul>
+
+            <ul id="ulEntrar" class="ulNavbar" #ulEntrar>
+                <a routerLink="/entrar" *ngIf="!estadoUsuario.ok" ><li><i class="fas fa-sign-in-alt"></i> Entrar</li></a>
+                <a routerLink="/registrarse" *ngIf="!estadoUsuario.ok"><li><i class="fas fa-user-plus"></i> Registrarse</li></a>
+                <a *ngIf="estadoUsuario.ok" (click)="salir()"><li><i class="fas fa-sign-out-alt"></i> Salir</li></a>
+                <li id="liBanderas">
+                    <span class="spanImg" (click)="traduceEspaniol($event)">
+                        <img [src]="objIdioma.spain" alt="Spain">
+                    </span>
+                    <span class="spanImg" id="spanImgEn" (click)="traduceIngles($event)">
+                        <img [src]="objIdioma.england" alt="English">
+                    </span>
+                </li>
+            </ul>
+
+            <i id="bars" #bars></i>
+        </nav>
+    </div>
+    <div id="navResp" class="animate__animated" #navResp></div>
+</div>

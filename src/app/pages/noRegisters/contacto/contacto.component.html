@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div id="wrapContact">
+    <div id="ilustracion">
+        <img src="../../../../assets/img/contacto2.png" alt="Enviar mensaje">
+    </div>
+    <div id="contactForm">
+        <div id="divForm">
+            <form (ngSubmit)="enviarMensaje($event)">
+                <h3>Contáctenos</h3>
+                <p>Envíenos un mensaje o llamenos, nuestros asesores con mucho gusto le atenderán</p>
+                <div id="divTels">
+                    <p>+507 61325157</p>
+                    <p>info@cbwyn.com</p>
+                </div>
+                <!-- nombre -->
+                <div id="nombre" class="inputsForm">
+                    <mat-form-field id="nombre">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput type="text" id="nombre" class="inputs"
+                            (keyup)="validaNombre($event.target.value)" #nombre>
+                        <mat-hint align="end">{{nombre.value.length}} / 50</mat-hint>
+                        <mat-hint align="start" class="rojo"
+                            *ngIf="objNombre.idMensaje === 1 && objNombre.estado === true">
+                            {{objNombre.mensaje}}
+                        </mat-hint>
+                        <mat-hint align="start" class="rojo"
+                            *ngIf="objNombre.idMensaje === 2 && objNombre.estado === true">{{objNombre.mensaje}}
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <!-- correo -->
+                <div id="correo" class="inputsForm">
+                    <mat-form-field id="correo">
+                        <mat-label>Correo</mat-label>
+                        <input matInput type="text" id="correo" class="inputs"
+                            (keyup)="validaCorreo($event.target.value)" #correo>
+                        <mat-hint align="end">{{correo.value.length}} / 50</mat-hint>
+                        <mat-hint align="start" class="rojo"
+                            *ngIf="objCorreo.idMensaje === 1 && objCorreo.estado === true">
+                            {{objCorreo.mensaje}}
+                        </mat-hint>
+                        <mat-hint align="start" class="rojo"
+                            *ngIf="objCorreo.idMensaje === 2 && objCorreo.estado === true">{{objCorreo.mensaje}}
+                        </mat-hint>
+                        <mat-hint align="start" class="rojo"
+                            *ngIf="objCorreo.idMensaje === 3 && objCorreo.estado === true">{{objCorreo.mensaje}}
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <!-- mensaje -->
+                <mat-form-field class="inputsForm" style="margin-bottom: 25px;">
+                    <mat-label>Mensaje</mat-label>
+                    <textarea matInput #mensaje id="mensaje" (keyup)="validarMensaje($event.target.value)"></textarea>
+                    <mat-hint align="end">{{mensaje.value.length}} / 300</mat-hint>
+                        <mat-hint align="start" class="rojo"
+                            *ngIf="objMensaje.idMensaje === 1 && objMensaje.estado === true">
+                            {{objMensaje.mensaje}}
+                        </mat-hint>
+                        <mat-hint align="start" class="rojo"
+                            *ngIf="objMensaje.idMensaje === 2 && objMensaje.estado === true">{{objMensaje.mensaje}}
+                        </mat-hint>
+                </mat-form-field>
+
+                <button type="submit" mat-raised-button color="primary">Enviar mensaje</button>
+            </form>
+        </div>
+    </div>
+</div>

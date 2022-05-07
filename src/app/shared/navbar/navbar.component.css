@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    ul.ulNavbar>a {
+        margin: 0px !important;
+        padding: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0px;
+        border-bottom: 1px solid gray;
+    }
+
+    li#liBanderas {
+        padding-top: 15px;
+    }
+}
+
+i {
+    margin-right: 5px;
+    font-size: 1rem;
+    color: rgb(72, 79, 86);
+    transition: all 0.3s;
+}
+
+.container-fluid {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    border: 0 0 1px 0 solid gray;
+    box-shadow: 1px 1px 10px rgba(31, 31, 31, 0.5);
+    top: 0px;
+    left: 0px;
+}
+
+.row {
+    margin: 0 auto;
+    width: 95%;
+}
+
+#navPrincipal {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 0px;
+    height: 60px;
+}
+
+.ulNavbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ulNavbar>a {
+    margin-right: 40px;
+    font-family: 'Nunito Sans', sans-serif;
+    /* font-size: 1.4rem; */
+    font-weight: 600;
+    color: rgb(72, 79, 86);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.ulNavbar>a>li {
+    font-size: 1rem;
+}
+
+#imgLogo {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+}
+
+#imgLogo>p {
+    width: 100%;
+    text-align: center;
+}
+
+#imgLogo>img {
+    width: 100%;
+}
+
+.ulNavbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#ulEntrar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#ulEntrar>a {
+    margin-right: 25px;
+}
+
+#ulEntrar>li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.spanImg {
+    /* border: 1px solid red; */
+    width: 25px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.spanImg:first-child {
+    margin-right: 5px;
+}
+
+.spanImg>img {
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.spanImg>img:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.ulNavbar>a:hover {
+    color: rgb(2, 204, 223);
+}
+
+.ulNavbar>a:hover i {
+    color: rgb(2, 204, 223);
+}
+
+.activo {
+    color: rgb(2, 204, 223) !important;
+}

@@ -1,0 +1,32 @@
+<div id="divNegocios">
+
+    <div id="divNegocio" *ngFor="let negocio of negocios">
+
+        <!-- portada -->
+        <div id="divImgPortada">
+            <img [src]="negocio.portada[0] | multimedia" alt="Portada">
+        </div>
+
+        <!-- descripcion -->
+        <div id="divDescripcion">
+
+            <h1 id="titulo">{{negocio.nombre | reduceTexto:cantTexto}}</h1>
+            <h2 id="ubicacion">{{negocio.ubicacion}}</h2>
+            <h3 id="categoria">{{negocio.categoria}}</h3>
+            <p id="descripcion">{{negocio.descripcion | reduceTexto:cantDesc}}</p>
+            <p id="monto">{{negocio.monto | currency}}</p>
+            <div id="btnGroup">
+                <div class="btnNegocio"  (click)="contactar($event, negocio._id, negocio)"><span>Contactar</span></div>
+                <div class="btnNegocio" (click)="verNegocio(negocio._id)"><span>Ver</span></div>
+            </div>
+        </div>
+
+        <div id="divFavorito">
+            <img [src]="heart" class="imgFavorito" attr.data-sectionvalue="{{negocio._id}}" (click)="favorito($event, negocio._id)" alt="Favorito" #imgFavorito>
+        </div>
+    </div>
+
+    <div id="divVerMas">
+        <span (click)="paginacion(2)">Ver más negocios...</span>
+    </div>
+</div>

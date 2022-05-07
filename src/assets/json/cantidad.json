@@ -1,0 +1,5 @@
+[
+    { "nombre": "Menos de 4 cifras", "codigo": "MC", "cantidad": 1 },
+    { "nombre": "Entre 4 y 5 cifras", "codigo": "MI", "cantidad": 2 },
+    { "nombre": "Más de 5 cifras", "codigo": "MU", "cantidad": 3 }
+]

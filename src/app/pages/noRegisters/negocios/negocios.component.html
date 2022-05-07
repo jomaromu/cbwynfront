@@ -1,0 +1,125 @@
+<app-navbar></app-navbar>
+<!-- <app-banner [imgBanner]='imgBanner' [tituloBanner]="tituloBanner"></app-banner> -->
+<!-- negocios -->
+<div id="divPrincipal" class="animate__animated animate__fadeIn" #divPrincipal>
+  <div id="soporte">
+    <div id="divBusqueda" #divBusqueda>
+      <h1>Encuentre el negocio ideal</h1>
+
+      <div id="divInputBusqueda" #divInputBusqueda>
+        <div class="selectBusqueda">
+          <span>País</span>
+          <select name="paises" id="paises" #opcionPais>
+            <option value="null">Todos</option>
+            <option
+              [value]="ubicacion.nombre"
+              *ngFor="let ubicacion of criterioBusqueda.ubicacion"
+            >
+              {{ ubicacion.nombre }}
+            </option>
+          </select>
+        </div>
+        <div class="selectBusqueda">
+          <span>Categoría</span>
+          <select name="categoria" id="categoria" #opcionCategoria>
+            <option value="null">Todas</option>
+            <option
+              [value]="categoria.nombre"
+              *ngFor="let categoria of criterioBusqueda.categoria"
+            >
+              {{ categoria.nombre }}
+            </option>
+          </select>
+        </div>
+        <div class="selectBusqueda">
+          <span>Rango</span>
+          <select name="cantidad" id="cantidad" #opcionCantidad>
+            <option value="null">Todos</option>
+            <option
+              [value]="cantidad.cantidad"
+              *ngFor="let cantidad of criterioBusqueda.cantidad"
+            >
+              {{ cantidad.nombre }}
+            </option>
+          </select>
+        </div>
+        <div id="btnBusqueda">
+          <img
+            src="../../../../assets/img/search.png"
+            alt="Búsqueda"
+            (click)="
+              busqueda($event, opcionPais, opcionCategoria, opcionCantidad)
+            "
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="divNegocios" *ngIf="TodosLosNeg.length > 0">
+    <div id="divNegocio" *ngFor="let negocio of TodosLosNeg; let i = index">
+      <!-- portada -->
+      <div id="divImgPortada">
+        <img [src]="negocio.portada[0] | multimedia" alt="Portada" />
+      </div>
+
+      <!-- descripcion -->
+      <div id="divDescripcion">
+        <h1 fontf id="titulo">{{ negocio.nombre | reduceTexto: cantTexto }}</h1>
+        <h2 id="ubicacion">{{ negocio.ubicacion }}</h2>
+        <h3 id="categoria">{{ negocio.categoria }}</h3>
+        <p id="descripcion">
+          {{ negocio.descripcion | reduceTexto: cantDesc }}
+        </p>
+        <p id="monto">{{ negocio.monto | currency }}</p>
+        <div id="btnGroup">
+          <div
+            class="btnNegocio"
+            (click)="contactar($event, negocio._id, negocio)"
+          >
+            <span>Contactar</span>
+          </div>
+          <div class="btnNegocio" (click)="verNegocio(negocio._id)">
+            <span>Ver</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="divFavorito">
+        <!-- <code *ngIf="favoritos && favoritos[i]?.negocio === negocio._id">gif</code>
+                <code *ngIf="favoritos && favoritos[i]?.negocio === null && favoritos.length !== 0">nogif</code>
+                <code *ngIf="favoritos.length === 0">ninguno</code> -->
+        <img
+          [src]="heart"
+          alt="Favorito"
+          class="imgFavorito"
+          id="imgFavorito"
+          attr.data-sectionvalue="{{ negocio._id }}"
+          (click)="favorito($event, negocio._id)"
+          #imgFavorito
+        />
+      </div>
+    </div>
+  </div>
+
+  <div id="noStock" *ngIf="TodosLosNeg.length <= 0">
+    <div id="divNoStockPrincipal">
+      <!-- <button class="btn btn-outline-primary" (click)="verTodos($event)"><i class="far fa-hand-point-left"></i> Ver todos los negocios</button> -->
+      <div id="btnTodos" (click)="verTodos($event)">
+        <img src="../../../assets/img/flecha-left.png" alt="Ir" />
+        <span>Ver todos los negocios</span>
+      </div>
+      <div id="colPrincipal">
+        <h1>Oops!...</h1>
+        <img src="../../../assets/img/not-found.gif" alt="" />
+        <p style="text-align: center; width: 100%">
+          Parece que no tenemos lo que andas buscando
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="divVerMas" *ngIf="TodosLosNeg.length > 0">
+    <span (click)="paginacion(5)">Ver más negocios...</span>
+  </div>
+</div>

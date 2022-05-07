@@ -1,0 +1,110 @@
+<app-navbar></app-navbar>
+<div id="contenedorInicio" class="animate__animated animate__fadeIn" #contenedorInicio>
+    <div id="presentacion">
+        <div>
+            <h1>Conecte con Inversionistas.</h1>
+            <h1>Encuentre Emprendedores.</h1>
+            <h3>Nuestra plataforma le ayudará a encontrar ese apoyo que su emprendimiento necesita.</h3>
+            <div id="btnGroup">
+                <div class="btnPresent" (click)="irDashboard()"><span>Emprender</span></div>
+                <div class="btnPresent" routerLink="/negocios"><span>Invertir</span></div>
+            </div>
+        </div>
+
+        <div id="divImgPresent">
+            <img src="../../../../assets/img/presentacion1.png" alt="Presentación">
+        </div>
+    </div>
+
+    <!-- tarjetas inciales -->
+    <div id="firstCards">
+        <div class="cardsIniciales">
+            <div>
+                <img src="../../../../assets/img/oportunidades.png" alt="Encuentre oportunidades">
+                <h3>Encuentre oportunidades</h3>
+                <p>Si tienes una idea para un negocio o si quiere expandir alguno que ya tengas, Puedes solicitar dinero
+                    para cumplir tu sueño, existen miles de personas dispuestas a invertir en ello.</p>
+            </div>
+            <span routerLink="/contacto">Saber más...</span>
+        </div>
+        <div class="cardsIniciales">
+            <div>
+                <img src="../../../../assets/img/ganancia.png" alt="Invierte seguro">
+                <h3>Invierte seguro</h3>
+                <p>Es tan fácil como ver la inversión que te interese o búscar alguna que quieras, darle al botón de
+                    invertir y listo; en unos minutos tienes agregado un nuevo negocio.</p>
+            </div>
+            <span routerLink="/contacto">Saber más...</span>
+        </div>
+        <div class="cardsIniciales">
+            <div>
+                <img src="../../../../assets/img/repite.png" alt="Recibe ganancias">
+                <h3>Recibe ganancias y repite</h3>
+                <p>No hay límites para poder utilizar nuestra plataforma, puedes invertir en una variada cantidad de
+                    ideas que tengan nuestros usuarios. Todo a un solo clic.</p>
+            </div>
+            <span routerLink="/contacto">Saber más...</span>
+        </div>
+    </div>
+
+    <!-- como funciona -->
+    <div id="comoFunciona">
+
+        <div class="funciona" id="divUlFunciona">
+            <ul>
+                <li><i class="fas fa-check"></i> Cree su usuario.</li>
+                <li><i class="fas fa-check"></i> Suba su idea de negocio o emprendimiento.</li>
+                <li><i class="fas fa-check"></i> Haga contacto con personas interesadas en su idea.</li>
+                <li><i class="fas fa-check"></i> Intercambie información buscando lo más conveniente para la
+                    negociación.</li>
+                <li><i class="fas fa-check"></i> Reciba fondos y empiece a crecer con su emprendimiento.</li>
+            </ul>
+        </div>
+
+        <div class="funciona">
+
+            <div id="imgIndicar">
+                <img src="../../../../assets/img/responsive.png" alt="Indicaciones">
+            </div>
+        </div>
+    </div>
+
+    <!-- acerca de nosotros -->
+    <div id="nosotros">
+        <h1>Sobre nosotros</h1>
+        <p><b>CBWYN</b> comienza desde el año 2020, realizando un estudio de prueba-resultado, para conectar con éxito a
+            los
+            <b>Emprendedores</b> con los <b>Inversionistas,</b>
+
+            asesorados con los más distinguidos economistas, permitiendo alcanzar el objetivo del negocio planteado con
+            mayor rapidez y transparencia.
+
+            Se empezó a proyectar una vía para que el <b>Emprendedor/Empresario</b> pueda plasmar sus ideas o negocios
+            en
+            <b>cbwyn.com</b> de una manera más detallada y ágil.
+        </p>
+    </div>
+
+    <!-- tarjetas finales -->
+    <div id="finalCards">
+        
+        <div class="tarjetasFinales">
+            <img src="../../../../assets/img/money.png" alt="Money">
+            <h3>Sea Inversionista</h3>
+            <p>Explore entre las muchas opciones para hacer negocios.</p>
+            <div class="btnFinalCards" routerLink="/negocios"><span>Invertir</span></div>
+        </div>
+        <div class="tarjetasFinales">
+            <img src="../../../../assets/img/tool-box.png" alt="Tool Box">
+            <h3>Ofrezca su negocio</h3>
+            <p>CBWYN lo pondrá a disposición de forma gratuita.</p>
+            <div class="btnFinalCards" (click)="irDashboard()"><span>Emprender</span></div>
+        </div>
+        <div class="tarjetasFinales">
+            <img src="../../../../assets/img/handshake.png" alt="Handshake">
+            <h3>Negociaciones múltiples</h3>
+            <p>Invierta o publique en la cantidad de negocios usted desee.</p>
+            <div class="btnFinalCards" (click)="irDashboard()"><span>Negociar</span></div>
+        </div>
+    </div>
+</div>

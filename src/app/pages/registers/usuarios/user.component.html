@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- sidebar -->
+            <app-sidebar [logo]='logo' [itemSidebar]='itemSidebar' [rutaPrincipal]='rutaPrincipal'></app-sidebar>
+            <!-- rutas hijas -->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<!-- <app-footer></app-footer> -->

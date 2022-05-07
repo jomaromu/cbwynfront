@@ -1,0 +1,650 @@
+@media screen and (max-width: 364px) {
+    input#lblArchivos {
+        font-size: 0.8rem !important;
+    }
+
+    mat-form-field#inputCodTel {
+        width: 40% !important;
+        margin-right: 10px;
+    }
+
+    mat-form-field#tefono {
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    div#formularioCompose {
+        width: 100%;
+    }
+
+    div#barraWizard {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 608px) {
+    div.bodyImg>p {
+        /* color: red; */
+        font-size: 0.8rem;
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    div.divSubir>p {
+        /* color: red; */
+        font-size: 0.8rem !important;
+        line-height: 1;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    i.fa-cloud-upload-alt {
+        font-size: 2rem !important;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 587px) {
+    div#groupHead>h3 {
+        font-size: 1.7rem;
+    }
+    div#groupHead>p {
+        font-size: 1.3rem;
+    }
+
+    h5.txtTitulos {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    div#formularioCompose {
+        width: 500px;
+    }
+    div#barraWizard>ul>li {
+        width: 125px;
+    }
+    div#botonMov>button {
+        width: 125px;
+    }
+    span#spanDualLogoPortada {
+        width: 100%;
+        /* background-color: red !important; */
+    }
+    p.txtImgMuestra {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    div#formularioCompose {
+        /* background-color: red; */
+        width: 100%;
+    }
+    p#txtSigaPasos {
+        text-align: center;
+        line-height: 1.1;
+        margin-top: 10px !important;
+    }
+    div#barraWizard>ul>li {
+        /* background-color: red; */
+        width: 25%;
+    }
+    div#botonMov {
+        /* background-color: green; */
+        width: 25%;
+    }
+    div#botonMov>button {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    mat-form-field.inputDatos {
+        width: 50%;
+    }
+    mat-form-field.inputDatos:nth-child(1) {
+        margin-right: 5px;
+    }
+
+    div.contenedorSoloImg {
+       width: 33%;;
+    }
+
+    form#formulario {
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    mat-form-field.media380 {
+        /* border: 1px solid red; */
+        width: 80% !important;
+    }
+}
+
+* {
+    box-sizing: border-box !important;
+}
+
+input, textarea {
+    font-size: 1.4rem;
+}
+
+textarea {
+    resize: none !important;
+}
+
+mat-label {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+mat-option {
+    font-size: 1.2rem !important;
+}
+
+input::placeholder {
+    color: gray;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* empiezan wizard */
+
+/* empieza form */
+
+#divForm {
+    /* background-color: green; */
+    /* border: 1px solid green; */
+    width: 100%;
+    /* background-color: white; */
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formularioCompose {
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 8px;
+    width: 640px;
+    /* height: 700px; */
+    padding: 0px;
+    padding: 0px;
+    box-shadow: 1px 1px 7px rgba(177, 177, 177, 0.5);
+    flex-wrap: wrap !important;
+}
+
+#formulario {
+    /* background-color: yellow; */
+    position: relative;
+    padding: 25px;
+    width: 100%;
+    /* height: 500px; */
+}
+
+/* termina form */
+
+/* empieza head */
+
+#head {
+    /* background-color: purple; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#groupHead {
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 35px 10px;
+}
+
+#groupHead>h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(60, 72, 88);
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+#groupHead>p {
+    font-size: 1.5rem;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+/* termina head */
+
+/* empieza barraWizard */
+
+#barraWizard {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(244, 244, 244);
+    /* margin-top: 35px; */
+    position: relative;
+}
+
+#barraWizard>ul {
+    /* background-color: pink; */
+    width: 100%;
+    height: 100%;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+}
+
+#barraWizard>ul>li {
+    background-color: rgb(244, 244, 244);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 160px;
+    font-size: 1.2rem;
+    color: rgb(80, 80, 80);
+    font-weight: 500;
+}
+
+#botonMov {
+    position: absolute;
+    height: 40px;
+    z-index: 3;
+}
+
+#botonMov>button {
+    width: 160px;
+}
+
+/* termina barra wizard */
+
+/* empiezan tabs */
+
+.tabs {
+    /* background-color: pink; */
+    width: 100%;
+    /* height: 250px; */
+    /* border: 1px solid gray; */
+    display: none;
+}
+
+.bodyTabs {
+    /* background-color: rgb(0, 255, 55); */
+    width: 100%;
+}
+
+.txtTitulos {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    color: rgb(80, 80, 80);
+}
+
+#nombre {
+    width: 60%;
+    display: block !important;
+    margin-bottom: 25px;
+}
+
+#descripcion {
+    /* background-color: red; */
+    width: 100%;
+    display: block !important;
+    resize: none;
+}
+
+.select {
+    height: 30px;
+    padding: 10px;
+}
+
+#span1 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#span2 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#montoNegocio {
+    width: 60%;
+    display: block !important;
+}
+
+.inputNegociacion {
+    width: 45%;
+}
+
+.spanDual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.spanDualLogoPortada {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.contenedorImg {
+    /* border: 1px solid red; */
+    position: relative;
+    /* width: 32%; */
+    /* min-width: 160px; */
+    min-height: 180px !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 2px;
+}
+
+span#spanDualImgMuestras {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.contenedorVideo {
+    /* border: 1px solid gray; */
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#contenedorPdf {
+    width: 49%;
+}
+
+.areaImg {
+    position: relative;
+    border: 2px dashed rgb(189, 189, 189);
+    border-radius: 3px;
+    padding: 10px;
+    background-color: rgb(244, 246, 249);
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    height: 135px;
+    overflow: hidden !important;
+}
+
+.bodyImg {
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    word-break: break-all;
+}
+
+.bodyImg>p {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.bodyImg>.divSubir {
+    /* background-color: red; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bodyImg>.divSubir>p {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.bodyImg>.divSubir>button {
+    height: 25px;
+}
+
+.areaImg>.divImgCropped {
+    position: absolute;
+    /* display: flex; */
+    top: 0px;
+    left: 0px;
+    /* width: 185px; */
+    width: auto;
+    /* height: 135px; */
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+}
+
+.areaImg>.divImgCropped>img {
+    /* height: 100%; */
+    width: 99% !important;
+}
+
+#imgLogo {
+    /* height: 100%; */
+    /* width: auto; */
+    height: auto;
+}
+
+.divBarraCarga {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.divBarraCarga>label {
+    width: 100%;
+    text-align: center;
+}
+
+#divVideo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    /* height: 135px; */
+    /* background-color: rgb(255, 255, 255); */
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+}
+
+#divVideo>#video {
+    width: 100%;
+}
+
+.textoRojo {
+    color: rgb(214, 32, 32) !important;
+}
+
+#lblArchivos {
+    color: rgb(105, 105, 105);
+    font-weight: 400 !important;
+}
+
+#divTelefono {
+    display: flex;
+    flex-direction: column;
+}
+
+#divTelefono {
+    width: 70%;
+}
+
+/* terminan tabs */
+
+/* empiezan botones */
+
+#btnSubmit {
+    display: none;
+}
+
+.btnWizard {
+    width: 150px;
+}
+
+.lblSubir {
+    background-color: rgb(33, 118, 245);
+    padding: 2px 7px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    text-shadow: none;
+    font-size: 1rem;
+    font-weight: 300 !important;
+    z-index: 99 !important;
+}
+
+.lblSubir:hover {
+    background-color: rgb(9, 100, 238);
+}
+
+/* terminan botones */
+
+/* empieza footer */
+
+#footer {
+    /* border: 1px solid red; */
+    position: relative;
+    margin-top: 50px;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    z-index: 9;
+    height: 40px;
+}
+
+#footer>#btnAtras {
+    position: absolute;
+    left: 0px;
+    bottom: 0;
+}
+
+#footer>#btnSiguiente, #btnSubmit {
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+}
+
+#progressBar {
+    margin-top: 25px;
+}
+
+/* termina footer */
+
+/* termina wizard */
+
+/* empieza fondo negro y cropper */
+
+#fondoNegro {
+    background-color: rgba(145, 145, 145, 0.3);
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999 !important;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+#areaCropper {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cropper {
+    position: relative;
+    width: 600px;
+    height: 500px;
+    background-color: rgb(233, 236, 239);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cropper>#btnRecortar {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    width: 90px;
+    height: 38px;
+    color: rgb(255, 255, 255);
+}
+
+#cropper>#btnCerrar {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+/* termina fondo negro y cropper*/

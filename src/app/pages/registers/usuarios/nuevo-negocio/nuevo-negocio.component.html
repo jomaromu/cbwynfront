@@ -1,0 +1,492 @@
+<!-- cropper -->
+<div id="fondoNegro" #fondoNegro>
+    <div id="cropper">
+        <button type="button" id="btnCerrar" class="btn btn-danger" (click)="cerrarCropper()">X</button>
+        <div id="areaCropper">
+            <image-cropper [imageChangedEvent]='imageChangedEvent' [maintainAspectRatio]="true" [aspectRatio]="radioImg"
+                (imageCropped)="imageCropped($event)">
+            </image-cropper>
+        </div>
+        <button type="button" id="btnRecortar" class="btn btn-primary" style="display: none;">Recortar</button>
+    </div>
+</div>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Nuevo negocio</h1>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid" style="padding: 0px;">
+            <div id="divForm">
+                <div id="formularioCompose">
+                    <div id="head">
+                        <div id="groupHead">
+                            <h3>Publicar mi negocio</h3>
+                            <p id="txtSigaPasos">Siga los pasos para publicar tu negocio</p>
+                        </div>
+                        <div id="barraWizard">
+                            <ul>
+                                <div id="botonMov" #botonMov>
+                                    <button mat-raised-button color="primary"><span id="txtSpanButtonMov"
+                                            #spanMov>DATOS</span></button>
+                                </div>
+                                <li class="indicadores">DATOS</li>
+                                <li class="indicadores">VENTAJAS</li>
+                                <li class="indicadores">MULTIMEDIA</li>
+                                <li class="indicadores">CONTACTO</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <form id="formulario" (ngSubmit)="publicarNegocio($event)">
+                        <div class="tabs  animate__animated animate__fadeIn">
+                            <!-- ACERCA DEL NEGOCIO -->
+                            <div id="tab1" class="childrenTabs">
+                                <h5 class="txtTitulos">Empecemos con los datos generales</h5>
+                                <div class="bodyTabs">
+
+                                    <!-- nombre del negocio -->
+                                    <mat-form-field id="nombre" class="media380">
+                                        <mat-label>Nombre del negocio</mat-label>
+                                        <input matInput type="text" #nombreNegocio (keyup)="validarNombre($event)">
+                                        <mat-hint align="start" class="text-danger" *ngIf="validaNombre.ok === false">
+                                            {{validaNombre.mensaje}}</mat-hint>
+                                        <mat-hint align="end">{{nombreNegocio.value?.length || 0}}/50</mat-hint>
+                                    </mat-form-field>
+
+                                    <!-- descripcion del negocio -->
+                                    <mat-form-field id="descripcion">
+                                        <mat-label>Descripción del negocio</mat-label>
+                                        <textarea rows="10" matInput #descripcionNegocio
+                                            (keyup)="validarDesc($event)"></textarea>
+                                        <mat-hint align="start" class="text-danger"
+                                            *ngIf="validaDescripcion.ok === false">
+                                            {{validaDescripcion.mensaje}}</mat-hint>
+                                        <mat-hint align="end">{{descripcionNegocio.value?.length || 0}}/1000</mat-hint>
+                                    </mat-form-field>
+
+                                    <span class="spanDual">
+                                        <!-- tipo de negocio -->
+                                        <mat-form-field class="inputDatos media380" appearance="fill">
+                                            <mat-label>Tpo de negocio</mat-label>
+                                            <mat-select id="tipoDeNegocio" class="select" #tipoNeg
+                                                (selectionChange)="validarTipo($event)">
+                                                <mat-option [value]="item.value" *ngFor="let item of objTipoNeg">
+                                                    {{item.nombre}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="text-danger" *ngIf="validaTipoNeg.ok === false">
+                                                {{validaTipoNeg.mensaje}}</mat-hint>
+                                        </mat-form-field>
+
+                                        <!-- tiempo inversion -->
+                                        <!-- <mat-form-field class="inputDatos" appearance="fill">
+                                            <mat-label>Tiempo</mat-label>
+                                            <mat-select id="tiempoDeNegocio" class="select" #tiempoNegocio
+                                                (selectionChange)="validarTiempo($event)">
+                                                <mat-option [value]="item.value" *ngFor="let item of objTiempoNeg">
+                                                    {{item.nombre}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="text-danger" *ngIf="validaTiempoNeg.ok === false">
+                                                {{validaTiempoNeg.mensaje}}</mat-hint>
+                                        </mat-form-field> -->
+                                    </span>
+
+                                    <!-- monto para el negocio-->
+                                    <mat-form-field id="montoNegocio">
+                                        <mat-label>Monto que solicito ($USD)</mat-label>
+                                        <input matInput type="number" #monto (keyup)="validarMonto($event)">
+                                        <mat-hint class="text-danger" *ngIf="validaMonto.ok === false">
+                                            {{validaMonto.mensaje}}</mat-hint>
+                                    </mat-form-field>
+
+                                    <span class="spanDual">
+                                        <!-- categorias -->
+                                        <mat-form-field class="inputDatos" appearance="fill">
+                                            <mat-label>Categoría</mat-label>
+                                            <mat-select id="tipoDeNegocio" class="select"
+                                                (selectionChange)="validarCategoria($event)">
+                                                <mat-option [value]="categoria.codigo"
+                                                    *ngFor="let categoria of categorias">
+                                                    {{categoria.nombre}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="text-danger" *ngIf="validaCat.ok === false">
+                                                {{validaCat.mensaje}}</mat-hint>
+                                        </mat-form-field>
+
+                                        <!-- ubicaciones -->
+                                        <mat-form-field class="inputDatos" appearance="fill">
+                                            <mat-label>Ubicación</mat-label>
+                                            <mat-select id="tipoDeNegocio" class="select"
+                                                (selectionChange)="validarUbicacion($event)">
+                                                <mat-option [value]="ubicacion.codigo"
+                                                    *ngFor="let ubicacion of ubicaciones">
+                                                    {{ubicacion.nombre}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="text-danger" *ngIf="validaUb.ok === false">
+                                                {{validaUb.mensaje}}</mat-hint>
+                                        </mat-form-field>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VENTAJAS DE LA NEGOCIACION -->
+                        <div class="tabs  animate__animated animate__fadeIn">
+                            <div class="childrenTabs">
+                                <h5 class="txtTitulos">Beneficios entre tu y el negociante </h5>
+                                <div class="bodyTabs">
+
+                                    <span class="spanDual">
+                                        <!-- utilidad-->
+                                        <mat-form-field id="utilidad" class="inputNegociacion">
+                                            <mat-label>Ganancia prevista($USD)</mat-label>
+                                            <input matInput type="number" (keyup)="validarUtilidad($event)"
+                                                placeholder="¿Cuánto es la gananacia (Anual)">
+                                            <mat-hint align="start"
+                                                *ngIf="validaUt.ok === true || validaUt.ok === null">¿Cuánto es la
+                                                gananacia? (Anual) </mat-hint>
+                                            <mat-hint align="start" class="text-danger" *ngIf="validaUt.ok === false">
+                                                {{validaUt.mensaje}}</mat-hint>
+                                        </mat-form-field>
+
+                                        <!-- tiempo retorno-->
+                                        <mat-form-field id="tiempoRetorno" class="inputNegociacion">
+                                            <mat-label>Tiempo para iniciar el negocio</mat-label>
+                                            <input matInput type="number" (keyup)="validarRegreso($event)"
+                                                placeholder="¿En qué tiempo empezará la negociación?(Meses)">
+                                            <mat-hint align="start"
+                                                *ngIf="validaReg.ok === true || validaReg.ok === null">¿En qué tiempo
+                                                empezará la negociación?(Meses) </mat-hint>
+                                            <mat-hint align="start" class="text-danger" *ngIf="validaReg.ok === false">
+                                                {{validaReg.mensaje}}</mat-hint>
+                                        </mat-form-field>
+                                    </span>
+
+                                    <span class="spanDual">
+                                        <!-- garantia -->
+                                        <mat-form-field id="garantia" class="inputNegociacion">
+                                            <mat-label>Garantía</mat-label>
+                                            <input matInput type="text" #garantia (keyup)="validarGarantia($event)"
+                                                placeholder="Bienes o fondos que respalden la negociación">
+                                            <mat-hint align="start"
+                                                *ngIf="validaGarant.ok === true || validaGarant.ok === null">Bienes o
+                                                fondos que respalden la negociación</mat-hint>
+                                            <mat-hint align="start" class="text-danger"
+                                                *ngIf="validaGarant.ok === false">
+                                                {{validaGarant.mensaje}}</mat-hint>
+                                            <mat-hint align="end">{{garantia.value?.length || 0}}/100</mat-hint>
+                                        </mat-form-field>
+
+                                        <!-- otras-->
+                                        <mat-form-field id="otras" class="inputNegociacion">
+                                            <mat-label>Otras (Opcional)</mat-label>
+                                            <input type="text" matInput #otras (keyup)="otros($event)"
+                                                placeholder="Otras">
+                                            <mat-hint align="end">{{otras.value?.length || 0}}/100</mat-hint>
+                                        </mat-form-field>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MULTIMEDIA -->
+                        <div class="tabs  animate__animated animate__fadeIn">
+                            <div class="childrenTabs">
+                                <h5 class="txtTitulos">Enseña al mundo lo que ofreces</h5>
+                                <div class="bodyTabs">
+
+                                    <!-- PORTADA Y LOGO -->
+                                    <span class="spanDualLogoPortada" id="spanDualLogoPortada">
+                                        <!-- Logo -->
+                                        <div class="contenedorImg">
+                                            <p>Logo</p>
+                                            <div id="areaImg1" class="areaImg">
+                                                <div class="divImgCropped" id="divImgCroppedLogo"
+                                                    style="display: none;">
+                                                    <img [src]="croppedLogo" alt="thumb" id="imgLogo">
+                                                </div>
+                                                <div class="bodyImg">
+                                                    <i class="fas fa-cloud-upload-alt"
+                                                        style="font-size: 3rem; color: rgb(9, 173, 208);"></i>
+                                                    <p>*Permitidos(jpg, png, jpeg)</p>
+                                                    <div class="divSubir">
+                                                        <p>Suba una imágen</p>
+                                                        <div>
+                                                            <!-- <label for="subirLogo" class="lblSubir" style="z-index: 9999;">Búscar</label> -->
+                                                            <input type="file" id="subirLogo" style="display: none;"
+                                                                #inputLogo (change)="manejaLogo($event)">
+                                                        </div>
+                                                        <!-- <button type="button" class="btn btn-primary">Búscar</button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="divBarraCarga">
+                                                <label for="subirLogo" class="lblSubir">Búscar</label>
+                                                <span class="text-danger"
+                                                    *ngIf="validaLogo.ok === false">{{validaLogo.mensaje}}</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- portada -->
+                                        <div class="contenedorImg">
+                                            <p>Portada</p>
+                                            <div id="areaImg1" class="areaImg">
+                                                <div class="divImgCropped" id="divImgCroppedPortada"
+                                                    style="display: none;">
+                                                    <img [src]="croppedPortada" alt="thumb" id="imgPortada">
+                                                </div>
+                                                <div class="bodyImg">
+                                                    <i class="fas fa-cloud-upload-alt"
+                                                        style="font-size: 3rem; color: rgb(9, 173, 208);"></i>
+                                                    <p>*Permitidos(jpg, png, jpeg)</p>
+                                                    <div class="divSubir">
+                                                        <p>Suba una imágen</p>
+                                                        <div>
+                                                            <!-- <label for="subirLogo" class="lblSubir" style="z-index: 9999;">Búscar</label> -->
+                                                            <input type="file" id="subirPortada" style="display: none;"
+                                                                #inputPortada (change)="manejaPortada($event)">
+                                                        </div>
+                                                        <!-- <button type="button" class="btn btn-primary">Búscar</button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="divBarraCarga">
+                                                <label for="subirPortada" class="lblSubir">Búscar</label>
+                                                <span class="text-danger"
+                                                    *ngIf="validaPortada.ok === false">{{validaPortada.mensaje}}</span>
+                                            </div>
+                                        </div>
+                                    </span>
+
+                                    <!-- IMAGENES DE MUESTRA -->
+                                    <span class="spanDual" id="spanDualImgMuestras">
+                                        <!-- img 1 -->
+                                        <div class="contenedorImg contenedorSoloImg">
+                                            <p class="txtImgMuestra">Imágen 1</p>
+                                            <div id="areaImg1" class="areaImg">
+                                                <div class="divImgCropped" id="divImgCroppedImg1"
+                                                    style="display: none;">
+                                                    <img [src]="croppedImg1" alt="thumb" id="img1">
+                                                </div>
+                                                <div class="bodyImg">
+                                                    <i class="fas fa-cloud-upload-alt"
+                                                        style="font-size: 3rem; color: rgb(9, 173, 208);"></i>
+                                                    <p class="txtPermitidos">*Permitidos(jpg, png, jpeg)</p>
+                                                    <div class="divSubir">
+                                                        <p class="txtPermitidos">Suba una imágen</p>
+                                                        <div>
+                                                            <!-- <label for="subirLogo" class="lblSubir" style="z-index: 9999;">Búscar</label> -->
+                                                            <input type="file" id="subirImg1" style="display: none;"
+                                                                #inputImg1 (change)="manejaImg1($event)">
+                                                        </div>
+                                                        <!-- <button type="button" class="btn btn-primary">Búscar</button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="divBarraCarga">
+                                                <label for="subirImg1" class="lblSubir">Búscar</label>
+                                                <span class="text-danger"
+                                                    *ngIf="validaImg1.ok === false">{{validaImg1.mensaje}}</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- img 2 -->
+                                        <div class="contenedorImg contenedorSoloImg">
+                                            <p class="txtImgMuestra">Imágen 2</p>
+                                            <div id="areaImg2" class="areaImg">
+                                                <div class="divImgCropped" id="divImgCroppedImg2"
+                                                    style="display: none;">
+                                                    <img [src]="croppedImg2" alt="thumb" id="img2">
+                                                </div>
+                                                <div class="bodyImg">
+                                                    <i class="fas fa-cloud-upload-alt"
+                                                        style="font-size: 3rem; color: rgb(9, 173, 208);"></i>
+                                                    <p class="txtPermitidos">*Permitidos(jpg, png, jpeg)</p>
+                                                    <div class="divSubir">
+                                                        <p class="txtPermitidos">Suba una imágen</p>
+                                                        <div>
+                                                            <!-- <label for="subirLogo" class="lblSubir" style="z-index: 9999;">Búscar</label> -->
+                                                            <input type="file" id="subirImg2" style="display: none;"
+                                                                (change)="manejaImg2($event)">
+                                                        </div>
+                                                        <!-- <button type="button" class="btn btn-primary">Búscar</button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="divBarraCarga">
+                                                <label for="subirImg2" class="lblSubir">Búscar</label>
+                                                <span class="text-danger"
+                                                    *ngIf="validaImg2.ok === false">{{validaImg2.mensaje}}</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- img 3 -->
+                                        <div class="contenedorImg contenedorSoloImg">
+                                            <p class="txtImgMuestra">Imágen 3</p>
+                                            <div id="areaImg3" class="areaImg">
+                                                <div class="divImgCropped" id="divImgCroppedImg3"
+                                                    style="display: none;">
+                                                    <img [src]="croppedImg3" alt="thumb" id="img3">
+                                                </div>
+                                                <div class="bodyImg">
+                                                    <i class="fas fa-cloud-upload-alt"
+                                                        style="font-size: 3rem; color: rgb(9, 173, 208);"></i>
+                                                    <p class="txtPermitidos">*Permitidos(jpg, png, jpeg)</p>
+                                                    <div class="divSubir">
+                                                        <p class="txtPermitidos">Suba una imágen</p>
+                                                        <div>
+                                                            <!-- <label for="subirLogo" class="lblSubir" style="z-index: 9999;">Búscar</label> -->
+                                                            <input type="file" id="subirImg3" style="display: none;"
+                                                                (change)="manejaImg3($event)">
+                                                        </div>
+                                                        <!-- <button type="button" class="btn btn-primary">Búscar</button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="divBarraCarga">
+                                                <label for="subirImg3" class="lblSubir">Búscar</label>
+                                                <span class="text-danger"
+                                                    *ngIf="validaImg3.ok === false">{{validaImg3.mensaje}}</span>
+                                            </div>
+                                        </div>
+                                    </span>
+
+                                    <!-- VIDEO Y PDF -->
+                                    <span class="spanDual">
+                                        <!-- video -->
+                                        <div class="contenedorVideo">
+                                            <p>Video demostrativo</p>
+                                            <div id="areaVideo" class="areaImg">
+                                                <div class="divVideo" id="divVideo" style="display: none;">
+                                                    <video id="video" controls>
+                                                        <source [src]="thumbVideo">
+                                                    </video>
+                                                </div>
+                                                <div class="bodyImg">
+                                                    <i class="fas fa-cloud-upload-alt"
+                                                        style="font-size: 3rem; color: rgb(9, 173, 208);"></i>
+                                                    <p class="txtPermitidos">*Permitidos(mp4, 3gp, wmv, avi)</p>
+                                                    <div class="divSubir">
+                                                        <p class="txtPermitidos">Suba un video: máx. 1 min</p>
+                                                        <div>
+                                                            <!-- <label for="subirLogo" class="lblSubir" style="z-index: 9999;">Búscar</label> -->
+                                                            <input type="file" id="subirVideo" style="display: none;"
+                                                                (change)="manejaVideo($event)">
+                                                        </div>
+                                                        <!-- <button type="button" class="btn btn-primary">Búscar</button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="divBarraCarga">
+                                                <label for="subirVideo" class="lblSubir">Búscar</label>
+                                                <span class="text-danger"
+                                                    *ngIf="validaVideo.ok === false">{{validaVideo.mensaje}}</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- pdf -->
+                                        <div id="contenedorPdf">
+                                            <p>Documentos
+                                                <i class="fas fa-question-circle"
+                                                    style="font-size: 1.2rem; cursor: pointer;"
+                                                    (mouseenter)="infoDocs($event)" (mouseleave)="fadeOutTooltip($event)"></i>
+                                                <span id="tooltipDocs" style="display: none;">Documentación concerntiente al negocio</span>
+                                            </p>
+                                            <input class="form-control" type="file" style="font-size: 1rem;" id="lblArchivos"
+                                                (change)="manejaArchivos($event)">
+                                            <label for="lblArchivos" class="form-label" id="lblArchivos"
+                                                [ngClass]="{textoRojo: validaArchivos.ok === false}">Permitidos(pdf,
+                                                doc, docx, xlsx,
+                                                ppt)</label>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CONTACTO     -->
+                        <div class="tabs  animate__animated animate__fadeIn">
+                            <div class="childrenTabs">
+                                <h5 class="txtTitulos">Dinos cómo encontrar tu negocio</h5>
+                                <div class="bodyTabs">
+
+                                    <span class="spanDual">
+                                        <!-- codigo numero telefonico -->
+                                        <mat-form-field appearance="fill" id="inputCodTel" style="width: 25%;">
+                                            <mat-label>Código teléfono</mat-label>
+                                            <mat-select id="codigoTel" class="select"
+                                                (selectionChange)="validarCodigoTel($event)">
+                                                <mat-option [value]="item.indicativo" *ngFor="let item of ubicaciones">
+                                                    {{item.indicativo}}
+                                                </mat-option>
+                                                <!-- <mat-option value="">
+                                                    507
+                                                </mat-option> -->
+                                            </mat-select>
+                                            <mat-hint class="text-danger" *ngIf="validaCodigo.ok === false">
+                                                {{validaCodigo.mensaje}}</mat-hint>
+                                        </mat-form-field>
+
+                                        <!-- numero telefonico -->
+                                        <div id="divTelefono">
+                                            <mat-form-field id="tefono" style="width: 70%;">
+                                                <mat-label>Número de teléfono</mat-label>
+                                                <input matInput type="text" id="telefono"
+                                                    (keyup)="validarTelefono($event)">
+                                            </mat-form-field>
+                                            <span class="text-danger"
+                                                *ngIf="validaTelefono.ok === false">{{validaTelefono.mensaje}}</span>
+                                        </div>
+                                    </span>
+
+                                    <span class="spanDual">
+                                        <!-- pagina web-->
+                                        <mat-form-field id="paginaWeb" class="inputNegociacion" style="width: 100%;">
+                                            <mat-label>Página web (Opcional)</mat-label>
+                                            <input matInput (change)="paginaWeb($event)">
+                                            <span class="text-danger"
+                                                *ngIf="validaPagWeb.ok === false">{{validaPagWeb.mensaje}}</span>
+                                        </mat-form-field>
+                                    </span>
+                                </div>
+                            </div>
+                        </div> <!-- termina contacto -->
+                        <div id="footer">
+                            <button type="button" class="btnWizard" mat-raised-button color="primary" id="btnAtras"
+                                (click)="nextPrev($event, -1)" #btnPrev>Atrás</button>
+                            <button type="button" class="btnWizard" mat-raised-button color="primary" id="btnSiguiente"
+                                (click)="nextPrev($event, 1)">Siguiente</button>
+                            <button type="submit" class="btnWizard" mat-raised-button color="primary" id="btnSubmit"
+                                #btnSubmit>Publicar negocio</button>
+                        </div>
+                        <div class="progress" id="progressBar" style="background-color: rgb(255, 255, 255);"
+                            #progressBar>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" id="divBarra"
+                                role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100" #divBarra>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

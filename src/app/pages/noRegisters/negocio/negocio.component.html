@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div id="wrapNegocio" class="animate__animated animate__fadeIn" #wrapNegocio>
+
+  <div id="divImgs">
+
+    <div id="divSwiper">
+      <div id="divImgPrincipal">
+        <img [src]="negocio?.negocioDB.img[0] | multimedia" alt="" id="imgPrincipal">
+      </div>
+    </div>
+
+    <div id="divThumbs">
+      <div>
+        <div *ngFor="let img of negocio?.negocioDB.img">
+          <img [src]="img | multimedia" alt="Thumbs" (click)="slide($event)">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="divDesc">
+    <h1>{{negocio?.negocioDB.nombre}}</h1>
+    <h2>{{negocio?.negocioDB.ubicacion}}</h2>
+    <p>{{negocio?.negocioDB.descripcion}}</p>
+    <div id="divVideo">
+      <img src="../../../../assets/img/logo-final.png" alt="Portada">
+      <video [src]="negocio?.negocioDB.video[0] | multimedia" controls></video>
+    </div>
+    <h3>Detalles del negocio</h3>
+    <div id="divTablaNegocio">
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr>
+            <th>Categoría</th>
+            <td>{{negocio?.negocioDB.categoria}}</td>
+          </tr>
+          <tr>
+            <th>Monto solicitado</th>
+            <td>{{negocio?.negocioDB.monto | currency}}</td>
+          </tr>
+          <tr>
+            <th>Tipo de negocio</th>
+            <td>{{negocio?.negocioDB.tipoNegocio}}</td>
+          </tr>
+          <tr>
+            <th>Ganancia prevista</th>
+            <td>{{negocio?.negocioDB.utilidad}}</td>
+          </tr>
+          <tr>
+            <th>Inicio de la negociación</th>
+            <td>{{negocio?.negocioDB.retorno}} (Meses)</td>
+          </tr>
+          <tr>
+            <th>Garantía</th>
+            <td>{{negocio?.negocioDB.garantia}}</td>
+          </tr>
+          <tr>
+            <th>Fecha de alta</th>
+            <td>{{negocio?.negocioDB.fechaAlta}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="btnContacto" (click)="contactar($event, negocio?.negocioDB._id, negocio)">
+      <span>Contactar</span>
+    </div>
+  </div>
+</div>
+
+<div id="divCatSimiliar" *ngIf="categSimilar.length > 1">
+  <h3>Negocios con categoría similar</h3>
+  <app-negocio-shared [categSimilar]="categSimilar" [idNegocio]='idNegocio'></app-negocio-shared>
+</div>

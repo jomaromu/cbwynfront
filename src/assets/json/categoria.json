@@ -1,0 +1,20 @@
+[
+    { "nombre": "Agroindustria", "codigo": "AI" },
+    { "nombre": "Arte y Entretenimiento", "codigo": "AE" },
+    { "nombre": "Automotriz", "codigo": "AM" },
+    { "nombre": "Bienes y Servicios de Consumo", "codigo": "BS" },
+    { "nombre": "Comunicación y Publicidad", "codigo": "CP" },
+    { "nombre": "Educación y Capacitación", "codigo": "EC" },
+    { "nombre": "Gastronomía", "codigo": "GA" },
+    { "nombre": "Industria", "codigo": "II" },
+    { "nombre": "Infraestructura", "codigo": "IA" },
+    { "nombre": "Logística", "codigo": "LL" },
+    { "nombre": "Medio Ambiente y Sostenibilidad", "codigo": "MA" },
+    { "nombre": "Nuevas Tecnologías", "codigo": "NT" },
+    { "nombre": "Servicios Legales", "codigo": "SL" },
+    { "nombre": "Sanidad", "codigo": "SS" },
+    { "nombre": "Seguros y Fianzas", "codigo": "SF" },
+    { "nombre": "Tercera Edad", "codigo": "TE" },
+    { "nombre": "Turismo", "codigo": "TT" },
+    { "nombre": "Otras", "codigo": "OO" }
+]

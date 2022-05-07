@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1700px) {
+    div#contenedorInicio {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    div#contenedorInicio {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    div#contenedorInicio {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    div#contenedorInicio {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    div#contenedorInicio {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 1334px) {
+    div#firstCards {
+        flex-direction: column;
+    }
+    div#firstCards {
+        flex-direction: column;
+    }
+    div.cardsIniciales {
+        width: 60%;
+        margin-bottom: 45px;
+    }
+    div.cardsIniciales>div>h3 {
+        font-size: 2rem;
+    }
+    div.cardsIniciales>div>p {
+        font-size: 1.3rem;
+    }
+    div.cardsIniciales>span {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    div#contenedorInicio {
+        width: 95%;
+    }
+    div#firstCards {
+        flex-direction: column;
+    }
+    div.cardsIniciales {
+        width: 80%;
+        margin-bottom: 25px;
+    }
+    div.cardsIniciales>div>h3 {
+        font-size: 2rem;
+    }
+    div.cardsIniciales>div>p {
+        font-size: 1.3rem;
+    }
+    div.cardsIniciales>span {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    div#divImgPresent {
+        display: none !important;
+    }
+    div#presentacion>div {
+        width: 90%;
+    }
+    div#comoFunciona {
+        flex-direction: column;
+    }
+    div#comoFunciona>div {
+        width: 90%;
+    }
+    div#finalCards {
+        flex-direction: column;
+    }
+    div#finalCards>div {
+        width: 80%;
+        margin-bottom: 100px;
+    }
+    div#finalCards>div.tarjetasFinales>h3 {
+        font-size: 2rem;
+    }
+    div#finalCards>div.tarjetasFinales>p {
+        font-size: 1.3rem;
+    }
+    div#finalCards>div.tarjetasFinales>div.btnFinalCards>span {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div#presentacion {
+        width: 100%;
+    }
+    div#nosotros>p {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    div#presentacion>div>h1 {
+        text-align: left;
+        line-height: 1.1;
+    }
+    div#presentacion>div>h3 {
+        text-align: left;
+    }
+    div.cardsIniciales {
+        /* border: 1px solid blue; */
+        width: 100%;
+    }
+    div.cardsIniciales>div {
+        height: auto;
+    }
+    div.cardsIniciales>div>h3 {
+        /* color: red; */
+        line-height: 1.1;
+    }
+    div#comoFunciona>div {
+        width: 100%;
+    }
+    div#finalCards>div {
+        width: 100%;
+    }
+    div#nosotros>p {
+        /* border: 1px solid red; */
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+        width: 100%;
+    }
+    div#finalCards>div>h3 {
+        line-height: 1.1;
+    }
+    div#finalCards>div {
+        /* border: 1px solid blue; */
+        height: auto !important;
+    }
+}
+
+h3, p, span, li {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+#contenedorInicio {
+    /* border: 1px solid red; */
+    margin: 0px auto;
+    width: 70%;
+    height: auto;
+}
+
+#presentacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+#presentacion>div {
+    /* border: 1px solid blue; */
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#presentacion>div>h1 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    text-align: justify;
+    color: rgb(72, 79, 86);
+}
+
+#presentacion>div>h1:nth-child(2) {
+    color: rgb(9, 173, 208);
+}
+
+#presentacion>div>h3 {
+    font-family: 'Nunito Sans', sans-serif;
+    text-align: justify;
+    font-size: 1.1rem;
+    color: rgb(72, 79, 86);
+}
+
+#presentacion>div>#btnGroup {
+    display: flex;
+    flex-direction: row;
+}
+
+#divImgPresent>img {
+    width: 100%;
+}
+
+.btnPresent {
+    /* border: 1px solid red; */
+    width: 150px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: rgb(72, 79, 86);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btnPresent:first-child {
+    border-right: none;
+    background-color: rgb(224, 223, 223);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.btnPresent:first-child:hover {
+    background-color: rgb(199, 199, 199);
+}
+
+.btnPresent:last-child {
+    border-left: none;
+    background-color: rgb(9, 173, 208);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: rgb(235, 235, 235);
+}
+
+.btnPresent:last-child:hover {
+    background-color: rgb(6, 189, 230);
+}
+
+/* segunda seccion */
+
+#firstCards {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cardsIniciales {
+    /* border: 1px solid blue; */
+    width: 400px;
+    min-height: 400px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px rgb(206, 206, 206);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardsIniciales>div>img {
+    height: 70px;
+}
+
+.cardsIniciales>div {
+    /* border: 1px solid blue; */
+    width: 100%;
+    height: 80%;
+}
+
+.cardsIniciales>div>h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    width: 100%;
+    text-align: justify;
+    margin-top: 25px;
+}
+
+.cardsIniciales>div>p {
+    font-size: 1rem;
+    width: 100%;
+    text-align: justify;
+}
+
+.cardsIniciales>span {
+    font-size: 1rem;
+    width: 100%;
+    text-align: justify;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cardsIniciales>span:hover {
+    color: rgb(4, 168, 253);
+}
+
+#comoFunciona {
+    /* border: 1px solid red; */
+    margin-top: 150px;
+    width: 100%;
+    /* height: 600px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#comoFunciona>div {
+    width: 50%;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#divUlFunciona>ul>li {
+    /* border: 1px solid blue; */
+    font-size: 1.3rem;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    font-weight: 500;
+    color: rgb(72, 79, 86);
+}
+
+#divUlFunciona>ul>li>i {
+    margin-right: 10px;
+}
+
+#imgIndicar>img {
+    width: 100%;
+}
+
+#nosotros {
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 150px;
+    padding: 25px;
+    display: flex;
+    box-shadow: 2px 2px 15px rgb(128, 128, 128);
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#nosotros>h1 {
+    font-size: 2.5rem;
+    color: rgb(72, 79, 86);
+    font-weight: 900;
+    padding: 50px 0px 0px 0px;
+}
+
+#nosotros>p {
+    font-size: 1.1rem;
+    color: rgb(72, 79, 86);
+    width: 70%;
+    text-align: justify;
+    padding: 35px;
+    line-height: 1.7;
+    /* font-weight: 900;
+    padding: 20px; */
+}
+
+#finalCards {
+    /* border: 1px solid red; */
+    margin-top: 150px;
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#finalCards>div {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    width: 350px;
+    height: 340px;
+}
+
+#finalCards>div>img {
+    width: 80px;
+    border: 1px solid rgb(6, 189, 230);
+    border-radius: 50%;
+    padding: 8px;
+    margin-bottom: 25px;
+}
+
+#finalCards>div>h3 {
+    /* border: 1px solid red; */
+    font-size: 1.2rem;
+    margin-top: 15px;
+    font-weight: 600;
+    color: rgb(72, 79, 86);
+    width: 100%;
+    text-align: center;
+}
+
+#finalCards>div>p {
+    /* border: 1px solid red; */
+    font-size: 1.1rem;
+    color: rgb(72, 79, 86);
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.btnFinalCards {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 50px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(224, 223, 223);
+    transition: all 0.3s;
+}
+
+.btnFinalCards:hover {
+    background-color: rgb(199, 199, 199);
+}
+
+.btnFinalCards>span {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: rgb(72, 79, 86);
+}

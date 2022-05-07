@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    font-size: 12px;
+}
+
+@media screen and (min-width: 768px) {
+ div#modal {
+     width: 400px;
+ }   
+}
+
+input,
+textarea {
+    font-size: 1.4rem;
+}
+
+textarea {
+    resize: none !important;
+}
+
+mat-label {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+mat-option {
+    font-size: 1.2rem !important;
+}
+
+input::placeholder {
+    color: gray;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+#containerEditar {
+    /* background-color: red !important; */
+    position: fixed !important;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(173, 173, 173, 0.3);
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal {
+    background-color: rgb(255, 255, 255);
+    /* width: 550px; */
+    width: 95%;
+    /* height: 650px; */
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px;
+}
+
+#divClose {
+    /* background-color: pink; */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+form {
+    /* background-color: red; */
+    /* width: 450px; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.txtControls {
+    text-align: justify;
+}
+
+#nombre {
+    width: 70%;
+    margin-bottom: 25px;
+    display: block !important;
+}
+
+#montoNegocio {
+    width: 60%;
+    display: block !important;
+    margin-top: 25px;
+}

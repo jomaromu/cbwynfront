@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-lg-12">
+            <!-- empieza banner -->
+            <div id="banner">
+                <!-- img -->
+                <img [src]="imgBanner" class="img-fluid" alt="Cbwyn Banner">
+                <!-- titulo -->
+                <div id="presentacion">
+                    <h1 id="titulo">{{tituloBanner}}</h1>
+                    <!-- formulario -->
+                    <form>
+                        <div class="form-row">
+                            <div>
+                                <!-- ubicacion -->
+                                <select class="form-select seleccion" name="paises" #opcionPais>
+                                    <option value="null">
+                                        País
+                                    </option>
+                                    <option [value]="ubicacion.nombre"
+                                        *ngFor="let ubicacion of criterioBusqueda.ubicacion">
+                                        {{ubicacion.nombre}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div>
+                                <!-- categoria -->
+                                <select name="categoria" id="categoria" class="form-select seleccion" #opcionCategoria>
+                                    <option value="null">
+                                        Categoría
+                                    </option>
+                                    <option [value]="categoria.nombre"
+                                        *ngFor="let categoria of criterioBusqueda.categoria">
+                                        {{categoria.nombre}}
+                                    </option>
+                                </select>
+                            </div>
+                            <!-- cantidad -->
+                            <!-- <div>
+                                <select name="cantidad" class="form-select seleccion" #opcionCantidad>
+                                    <option value="null">
+                                        Cantidad
+                                    </option>
+                                    <option [value]="cantidad.cantidad" *ngFor="let cantidad of criterioBusqueda.cantidad">
+                                        {{cantidad.nombre}}
+                                    </option>
+                                </select>
+                            </div> -->
+                            <!-- recordar poner opcionCantidad como parametro del boton de busqueda -->
+                            <button type="button" id="btn_busqueda" class="btn btn-outline-primary" (click)="busqueda($event, opcionPais, opcionCategoria)">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- termina banner -->
+        </div>
+    </div>
+</div>

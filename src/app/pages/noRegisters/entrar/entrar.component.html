@@ -1,0 +1,86 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+
+            <!-- inicia formulario -->
+            <form class="login100-form validate-form" [formGroup]="forma" (ngSubmit)="loguearUsuario()">
+                <p style="cursor: pointer; border: none; outline: none;" routerLink="/inicio"><i class="fas fa-chevron-left"></i> Ir a inicio</p>
+                <span class="login100-form-title p-b-43">
+                    Entrar
+                </span>
+
+                <!-- correo -->
+                <span *ngIf="msgCorreo.invalido" class="text-danger">
+                    <li *ngFor="let mensaje of msgCorreo.mensajes">* {{mensaje}}</li>
+                </span>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" name="email" id="correo" formControlName="correo">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Correo</span>
+                </div>
+
+                <!-- contraseña -->
+                <span *ngIf="msgPass.invalido" class="text-danger">
+                    <li *ngFor="let mensaje of msgPass.mensajes">* {{mensaje}}</li>
+                </span>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="pass" formControlName="pass1">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Contraseña</span>
+                </div>
+
+                <!-- recordarme -->
+                <div class="flex-sb-m w-full p-t-3 p-b-32">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" formControlName="recordarme">
+                        <label class="label-checkbox100" for="ckb1">
+                            Recordarme
+                        </label>
+                    </div>
+
+                    <div>
+                        <a href="#" class="txt1">
+                            ¿Olvidó su contraseña?
+                        </a>
+                    </div>
+                </div>
+
+                <!-- boton login -->
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn" id="btnRegistarme" #btnEntrar>
+                        <span #txtEntrar>Entrar</span>
+                    </button>
+                </div>
+
+                <div>
+                    <a routerLink="/registrarse" class="txt1">
+                        Registrarme
+                    </a>
+                </div>
+
+                <div class="text-center p-t-46 p-b-20">
+                    <span class="txt2">
+                        ó entrar usando
+                    </span>
+                </div>
+
+                <!-- redes sociales -->
+                <div class="login100-form-social flex-c-m">
+                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                        <i class="fab fa-google" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+            <div class="login100-more" style="background-image: url('../../../../assets/img/entrar.png');">
+            </div>
+        </div>
+    </div>
+</div>

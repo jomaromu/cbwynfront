@@ -1,0 +1,88 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <!-- empieza formulario -->
+            <form class="login100-form validate-form" [formGroup]="forma" (ngSubmit)="registrarUsuario()">
+                <p style="cursor: pointer; border: none; outline: none;" routerLink="/inicio"><i class="fas fa-chevron-left"></i> Ir a inicio</p>
+                <span class="login100-form-title p-b-43">
+                    Registrarme
+                </span>
+
+                <!-- email -->
+                <span *ngIf="msgCorreo.invalido" class="text-danger">
+                    <li *ngFor="let mensaje of msgCorreo.mensajes">* {{mensaje}}</li>
+                </span>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" name="email" formControlName="correo">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Correo</span>
+                </div>
+
+                <!-- contraseña -->
+                <span *ngIf="msgPass.invalido" class="text-danger">
+                    <li *ngFor="let mensaje of msgPass.mensajes">* {{mensaje}}</li>
+                </span>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="pass" formControlName="pass1">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Contraseña</span>
+                </div>
+
+                <!-- repetir contraseña -->
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="pass" formControlName="pass2">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">Repita contraseña</span>
+                </div>
+
+                <!-- // soy mayor -->
+                <span *ngIf="msgMayor.invalido" class="text-danger">
+                    <li *ngFor="let mensaje of msgMayor.mensajes">* {{mensaje}}</li>
+                </span>
+                <div class="flex-sb-m w-full p-t-3 p-b-32">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" formControlName="soyMayor">
+                        <label class="label-checkbox100" for="ckb1">
+                            Soy mayor de edad
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" #btnRegistrarse>
+                        <span #txtRegistrarse>Registrarme</span>
+                    </button>
+                </div>
+
+                <div>
+                    <a routerLink="/entrar" class="txt1 mt-4">
+                        Iniciar sesión
+                    </a>
+                </div>
+
+                <div class="text-center p-t-46 p-b-20">
+                    <span class="txt2">
+                        ó Registrarme usando
+                    </span>
+                </div>
+
+                <div class="login100-form-social flex-c-m">
+                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                        <i class="fab fa-google" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+            <div class="login100-more" style="background-image: url('../../../../assets/img/registrarse.png');">
+            </div>
+        </div>
+    </div>
+</div>

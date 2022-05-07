@@ -1,0 +1,30 @@
+* {
+    text-decoration: none;
+    list-style: none;
+    color: rgb(235, 235, 235);
+}
+
+.textosAll {
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+}
+
+.textosAll:hover {
+    color: rgb(255, 255, 255) !important;
+}
+
+mat-tree {
+    background-color: rgb(52, 58, 64) !important;
+}
+
+.example-tree-invisible {
+    display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}

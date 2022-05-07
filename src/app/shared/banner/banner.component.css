@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 992px) {
+    h1#titulo {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+    }
+    select {
+        width: 170px !important;
+        height: 40px !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    h1#titulo {
+        font-size: 1.8rem;
+    }
+    select.seleccion {
+        width: 120px !important;
+        height: 25px !important;
+        font-size: 1rem !important;
+    }
+    button#btn_busqueda {
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        margin-top: 0px;
+    }
+    option.opcion_default {
+        font-size: 1rem !important;
+    }
+}
+
+@media screen and (max-width: 476px) {
+    h1#titulo {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    select.seleccion {
+        width: 100px !important;
+        height: 25px !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h1#titulo {
+        font-size: 1.3em;
+        margin-bottom: 20px;
+    }
+    select.seleccion {
+        width: 80px !important;
+        height: 20px !important;
+        font-size: 0.8rem !important;
+    }
+    option.opcion_default {
+        font-size: 0.8rem !important;
+    }
+    option {
+        font-size: 0.8rem !important;
+    }
+    button#btn_busqueda {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.container-fluid {
+    position: relative;
+}
+
+#banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+}
+
+#presentacion {
+    position: absolute;
+}
+
+#titulo {
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+
+/* empieza formulario */
+
+.form-row {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+select {
+    width: 200px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+select,
+select>option {
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #848484;
+    height: 45px !important;
+    padding-left: 15px;
+}
+
+.opcion_default {
+    font-weight: 800;
+    color: black;
+    font-size: 1.2rem;
+}
+
+#btn_busqueda {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    margin-top: 5px;
+}
+
+
+/* termina formulario */

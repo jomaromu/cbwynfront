@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1400px) {
+    div#ilustracion>img {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1325px) {
+    div#ilustracion>img {
+        width: 80%;
+    }
+    div#contactForm {
+        width: 55%;
+    }
+    div#ilustracion {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1208px) {
+    div#ilustracion>img {
+        width: 80%;
+    }
+    div#contactForm {
+        width: 60%;
+    }
+    div#ilustracion {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1102px) {
+    div#ilustracion>img {
+        width: 90%;
+    }
+    div#contactForm {
+        width: 65%;
+    }
+    div#ilustracion {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    div#ilustracion {
+        display: none;
+    }
+    div#contactForm {
+        width: 95%;
+    }
+    div#divForm {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    div#contactForm {
+        width: 95%;
+    }
+    div#divForm {
+        /* border: 1px solid red; */
+        padding-bottom: 25px;
+        margin-top: 50px;
+    }
+
+    div#divForm>form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 574px) {
+
+    div#divForm {
+        width: 100% !important;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+    form>h3 {
+        font-size: 1.7rem !important;
+    }
+    form>p {
+        font-size: 1rem !important;
+    }
+
+    div#divTels {
+        /* border: 1px solid pink; */
+        width: 80%;
+    }
+    div#divTels>p {
+        font-size: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 336px) {
+
+    div#divTels {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+.rojo {
+    color: tomato;
+    font-size: 0.9rem;
+}
+
+h1, h2, h3, p, span, mat-label, input, button {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+#wrapContact {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    padding-top: 70px;
+    justify-content: center;
+}
+
+#ilustracion {
+    /* border: 1px solid blue; */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ilustracion>img {
+    margin-top: -70px;
+    width: 60%;
+}
+
+#contactForm {
+    /* border: 1px solid blue; */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#divForm {
+    /* border: 1px solid green; */
+    position: relative;
+    width: 90%;
+    /* margin-top: 50px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    /* border: 1px solid yellow; */
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form h3, p {
+    width: 100%;
+    text-align: center;
+}
+
+form h3 {
+    font-size: 2rem;
+    color: #3b3952;
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+form p {
+    /* border: 1px solid red; */
+    font-size: 1.2rem;
+    color: #3b3952;
+    width: 80%;
+    line-break: auto;
+}
+
+#divTels {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    width: 62%;
+    margin-bottom: 25px;
+}
+
+#divTels>p {
+    font-weight: 900;
+}
+
+.inputsForm {
+    /* border: 1px solid red; */
+    width: 80%;
+    /* margin-bottom: 15px; */
+}
+
+.inputsForm>mat-form-field {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+mat-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+textarea {
+    height: 75px;
+}
+
+button {
+    width: 80%;
+    height: 50px;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,41 @@
+<div id="containerEditar" style="overflow-y: auto;">
+    <div id="modal" class="animate__animated animate__fadeInDown" style="overflow-y: auto;">
+        <div id="divClose">
+            <button class="btn btn-danger"
+                style="width: 25px; height: 25px; border-radius: 50%; padding: 5px; display: flex; justify-content: center; align-items: center;"
+                (click)="cerrarModal()">
+                <span style="font-size: 2rem;">x</span>
+            </button>
+        </div>
+        <div id="header" style="display: flex; flex-direction: column; justify-content: center;">
+            <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+                <img src="../../../assets/img/logo-final.png" style="width: 100px;" alt="">
+            </div>
+            <h2 style="text-align: center; margin-top: 25px; width: 100%;">Editar negocio</h2>
+        </div>
+        <form [formGroup]="forma" (ngSubmit)="editarNegocio($event)">
+            <!-- nombre -->
+            <mat-form-field id="nombre">
+                <mat-label style="font-size: 1.4rem;">Nombre del negocio</mat-label>
+                <input matInput class="txtConrols" formControlName="nombre">
+            </mat-form-field>
+
+            <!-- descripcion -->
+            <mat-form-field style="width: 100%;">
+                <mat-label>Descripción del negocio</mat-label>
+                <textarea matInput rows="10" class="txtControls" formControlName="descripcion">
+                </textarea>
+            </mat-form-field>
+
+            <!-- monto para el negocio-->
+            <mat-form-field id="montoNegocio">
+                <mat-label>Monto que necesito ($USD)</mat-label>
+                <input matInput type="number" [value]="negocio.monto" formControlName="monto">
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary"
+                style="width: 100%; padding-right: 10px; padding-left: 10px; margin-top: 25px; margin-bottom: 25px;"><span
+                    style="font-size: 1.2rem;">Actualizar datos</span></button>
+            <mat-progress-bar mode="determinate" value="40" *ngIf="progress === true"></mat-progress-bar>
+        </form>
+    </div>
+</div>

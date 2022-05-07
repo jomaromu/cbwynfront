@@ -1,0 +1,166 @@
+<app-navbar></app-navbar>
+<div id="wrapPago" class="animate__animated animate__fadeIn">
+    <div id="filaPagos">
+        <h1 id="tituloPagos">Detalles del pago</h1>
+        <form (ngSubmit)="procesarPago($event, negocio)">
+            <div id="detallesPago" class="divPagos">
+                <h3 id="tituloGenerales">Datos generales</h3>
+
+                <div class="dual">
+                    <!-- nombre -->
+                    <div class="nombreApellido">
+                        <mat-form-field id="nombre">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput type="text" id="nombre" class="inputs"
+                                (keyup)="validaNombre($event.target.value)" #nombre>
+                            <mat-hint align="end">{{nombre.value.length}} / 50</mat-hint>
+                            <mat-hint align="start" class="rojo"
+                                *ngIf="objNombre.idMensaje === 1 && objNombre.estado === true">
+                                {{objNombre.mensaje}}
+                            </mat-hint>
+                            <mat-hint align="start" class="rojo"
+                                *ngIf="objNombre.idMensaje === 2 && objNombre.estado === true">{{objNombre.mensaje}}
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- apellido -->
+                    <div class="nombreApellido">
+                        <mat-form-field id="apellido">
+                            <mat-label>Apellido</mat-label>
+                            <input matInput type="text" class="inputs" (keyup)="validaApellido($event.target.value)"
+                                #apellido>
+                            <mat-hint align="end">{{nombre.value.length}} / 50</mat-hint>
+                            <mat-hint align="start" class="rojo"
+                                *ngIf="objApellido.idMensaje === 1 && objApellido.estado === true">
+                                {{objApellido.mensaje}}
+                            </mat-hint>
+                            <mat-hint align="start" class="rojo"
+                                *ngIf="objApellido.idMensaje === 2 && objApellido.estado === true">
+                                {{objApellido.mensaje}}</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="dual">
+                    <div class="UbicacionCorreo">
+                        <!-- ubicacion -->
+                        <mat-form-field appearance="fill" id="ubicacion" style="cursor: no-drop;">
+                            <mat-label>Ubicación de registro</mat-label>
+                            <input matInput disabled [value]="negocio.ubicacion" type="text" #ubicacion>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="UbicacionCorreo">
+                        <!-- correo -->
+                        <mat-form-field appearance="fill" id="correo" style="cursor: no-drop;">
+                            <mat-label>Correo</mat-label>
+                            <input matInput disabled [value]="usuario.usuarioDBToken.usuarioDB.correo" type="email"
+                                #correo>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="dual" id="descPhoneCod">
+
+                    <!-- codigo -->
+                    <div class="codigoPhone">
+                        <mat-form-field appearance="fill" id="codigo">
+                            <mat-label>Código</mat-label>
+                            <mat-select name="codigo" id="codigo" (selectionChange)="validarCodigoTel($event, phone)"
+                                #codigo>
+                                <mat-option value="ninguno">
+                                    Ninguno
+                                </mat-option>
+                                <mat-option [value]="item.codigo" *ngFor="let item of indicativo">
+                                    {{item.indicativo}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint align="start" class="rojo"
+                                *ngIf="objCodigo.idMensaje === 3 && objCodigo.estado === true">{{objCodigo.mensaje}}
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- phone -->
+                    <div class="codigoPhone">
+                        <mat-form-field id="phone">
+                            <mat-label>Teléfono {{objCodigo.mensajeTel}}</mat-label>
+                            <input matInput type="text" class="inputs" (keyup)="validaTel($event, codigo)" #phone>
+                            <mat-hint align="start" class="rojo"
+                                *ngIf="objTel.idMensaje === 1 && objTel.estado === true">{{objTel.mensaje}}
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+            <div id="informacionPago" class="divPagos">
+                <div id="descImporte">
+                    <div id="divImg">
+                        <img [src]="negocio.portada[0] | pipeNegocios" alt="Portada">
+                    </div>
+                    <h3 id="txtNombreNeg">{{negocio.nombre}}</h3>
+                    <p id="txtMonto">{{importe | currency}}</p>
+                    <div id="fondo">
+                    </div>
+                </div>
+                <div id="detallesTarjeta">
+                    <!-- numero tarjeta -->
+                    <mat-form-field id="numTarjeta">
+                        <mat-label>Número de tarjeta</mat-label>
+                        <input matInput type="text" class="inputs" (keyup)="validartarjeta($event)" #numTarjeta>
+                        <mat-hint align="end">{{numTarjeta.value.length}} / 16</mat-hint>
+                        <mat-hint align="start" class="rojo"
+                            *ngIf="objTarjeta.idMensaje === 1 && objTarjeta.estado === true">{{objTarjeta.mensaje}}
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <div id="fechaExpiracion">
+                        <!-- expiracion -->
+                        <mat-form-field id="mes" class="detailsCard">
+                            <mat-label>MM</mat-label>
+                            <input matInput type="text" (keyup)="validarMes($event)" #mes>
+                            <mat-hint align="end" [ngClass]="{'rojo':objMM.estado === true && objMM.idMensaje === 1}">
+                                {{mes.value.length}} / 2</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field id="anio" (keyup)="validarAnio($event)" class="detailsCard">
+                            <mat-label>YY</mat-label>
+                            <input matInput type="text" #anio>
+                            <mat-hint align="end" [ngClass]="{'rojo':objYY.estado === true && objYY.idMensaje === 1}">
+                                {{anio.value.length}} / 4</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field id="codigo" (keyup)="validarCVC($event)" class="detailsCard">
+                            <mat-label>CVC</mat-label>
+                            <input matInput type="text" #cvc>
+                            <mat-hint align="end" [ngClass]="{'rojo':objCVC.estado === true && objCVC.idMensaje === 1}">
+                                {{cvc.value.length}} / 3</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div id="divTerminos">
+                        <!-- <mat-checkbox id="checkPoliticas" (click)="checkPoliticas($event)"></mat-checkbox> -->
+                        <input type="checkbox" id="checkPoliticas" (click)="checkPoliticas($event)">
+                        <p id="txtClausulas">Al completar el pago estoy de acuerdo con los
+                            <span style="color: rgb(63, 63, 63); font-weight: 600; cursor: pointer;">
+                                <a class="aTerminos">Términos y
+                                    Condiciones
+                                </a>
+                            </span>
+                            al igual que las
+                            <span style="color: rgb(63, 63, 63); font-weight: 600;">
+                                <a class="aTerminos">Políticas y
+                                    Cláusulas de Privacidad.
+                                </a>
+                            </span>
+                        </p>
+                    </div>
+                    <button id="btnPagar" type="submit"><span>Completar pago</span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
